@@ -19,7 +19,7 @@ DEVICE=sweet
 #VERSION=
 
 # Kernel Defconfig
-DEFCONFIG=vendor/sweet-perf_defconfig
+DEFCONFIG=vendor/sweet_perf_defconfig
 
 # Files
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
