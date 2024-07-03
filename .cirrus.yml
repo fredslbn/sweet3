@@ -14,6 +14,8 @@ task:
     - git submodule update --init --recursive --remote
     - git checkout v0.9.5
     - git rev-list --count HEAD
+    - cd .. && cd drivers
+    - ln -sf "../KernelSU/kernel" "kernelsu"
     - cd ..
             
   Build_script:
