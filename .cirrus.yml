@@ -8,19 +8,11 @@ task:
       memory: 32G
       
   setup_script:
-<<<<<<< HEAD
     - ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && date
     - apt update && apt upgrade -y
-    - cd KernelSU
-=======
-    - pacman -Sy --needed --noconfirm archlinux-keyring
-    - pacman -Syyu --needed --noconfirm wget xmlto base-devel inetutils bc cpio python-sphinx python-sphinx_rtd_theme graphviz git python zip fortune-mod
     - cd ksus
->>>>>>> 51f265256 (patch susfs and add kernelsu fix version)
     - git submodule update --init --recursive --remote
     - git rev-list --count HEAD
-    - cd .. && cd drivers
-    - ln -sf "../KernelSU/kernel" "kernelsu"
     - cd ..
             
   Build_script:
