@@ -315,7 +315,7 @@ static int filldir64(struct dir_context *ctx, const char *name, int namlen,
 		if (signal_pending(current))
 			return -EINTR;
 			
-		+#ifdef CONFIG_KSU_SUSFS_SUS_PATH
+		#ifdef CONFIG_KSU_SUSFS_SUS_PATH
 		if (susfs_sus_ino_for_filldir64(ino)) {
 			return 0;
 		}

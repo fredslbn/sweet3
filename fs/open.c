@@ -401,8 +401,6 @@ SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
 	ksu_handle_faccessat(&dfd, &filename, &mode, NULL);
 #endif
 
-<<<<<<< HEAD
-=======
 #ifdef CONFIG_KSU_SUSFS_SUS_PATH
        fname = getname_safe(filename);
        status = susfs_sus_path_by_filename(fname, &error, SYSCALL_FAMILY_ALL_ENOENT);
@@ -413,7 +411,6 @@ SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
        }
 #endif
 
->>>>>>> 51f265256 (patch susfs and add kernelsu fix version)
 	if (mode & ~S_IRWXO)	/* where's F_OK, X_OK, W_OK, R_OK? */
 		return -EINVAL;
 

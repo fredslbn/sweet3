@@ -104,7 +104,6 @@
 
 #include "../../lib/kstrtox.h"
 
-<<<<<<< HEAD
 struct task_kill_info {
 	struct task_struct *task;
 	struct work_struct work;
@@ -119,11 +118,10 @@ static void proc_kill_task(struct work_struct *work)
 	put_task_struct(task);
 	kfree(kinfo);
 }
-=======
+
 #ifdef CONFIG_KSU_SUSFS
 #include <linux/susfs.h>
 #endif
->>>>>>> 51f265256 (patch susfs and add kernelsu fix version)
 
 /* NOTE:
  *	Implementing inode permission operations in /proc is almost
@@ -2485,7 +2483,7 @@ proc_map_files_readdir(struct file *file, struct dir_context *ctx)
 					sizeof(info.name), "%lx-%lx",
 					vma->vm_start, vma->vm_end);
 					
-			+#ifdef CONFIG_KSU_SUSFS_SUS_MAPS
+			#ifdef CONFIG_KSU_SUSFS_SUS_MAPS
 			susfs_ret = susfs_sus_map_files_instantiate(vma);
 			info.susfs_action = susfs_ret;
 			#endif
