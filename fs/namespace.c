@@ -2706,6 +2706,15 @@ static int do_new_mount(struct path *path, const char *fstype, int sb_flags,
 	}
 
 	err = do_add_mount(real_mount(mnt), path, mnt_flags);
+	
+#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
+	if (!err) {
+		if (path->dentry && path->dentry->d_inode && unlikely(path->dentry->d_inode->i_state & 33554432)) {
+			real_mount(mnt)->mnt.mnt_root->d_inode->i_state |= 33554432;
+		}
+	}
+#endif
+	
 	if (err)
 		mntput(mnt);
 	return err;
