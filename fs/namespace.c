@@ -157,8 +157,9 @@ static void mnt_free_id(struct mount *mnt)
 	ida_remove(&mnt_id_ida, id);
 	if (mnt_id_start > id)
 		mnt_id_start = id;
-	spin_unlock(&mnt_id_lock);
-	
+	spin_unlock(&mnt_id_lock);		
+}
+
 #ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
 static void susfs_mnt_alloc_group_id(struct mount *mnt)
 {
@@ -166,8 +167,6 @@ static void susfs_mnt_alloc_group_id(struct mount *mnt)
 	mnt->mnt_group_id = DEFAULT_SUS_MNT_GROUP_ID;
 }
 #endif
-	
-}
 
 /*
  * Allocate a new peer group ID
